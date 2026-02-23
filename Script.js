@@ -1,4 +1,17 @@
-(function() {
+/* RESOLUÇÃO DE TELA PRETA: 
+   Este bloco garante que o script só rode após o carregamento total do DOM 
+   e cria o elemento 'scripta-root' caso ele ainda não exista.
+*/
+window.addEventListener('load', function() {
+    // Garante que o elemento alvo exista antes do código rodar
+    if (!document.getElementById("scripta-root")) {
+        const root = document.createElement("div");
+        root.id = "scripta-root";
+        document.body.appendChild(root);
+    }
+
+    // --- SEU CÓDIGO ORIGINAL ABAIXO (SEM ALTERAÇÕES) ---
+    (function() {
     /* ADIÇÃO: Watchdog para evitar carregamento infinito */
     setTimeout(() => {
         const root = document.getElementById("scripta-root");
@@ -389,3 +402,5 @@
         })
     }
 })();
+    // --- FIM DO SEU CÓDIGO ORIGINAL ---
+});
